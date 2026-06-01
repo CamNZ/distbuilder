@@ -15,22 +15,22 @@
   # Input validation
   .require_param(spec, "meanlog", "log_normal")
   .require_param(spec, "sdlog", "log_normal")
-  
+
   .check_single_numeric(spec$meanlog, "log_normal `meanlog`")
   .check_single_numeric(spec$sdlog, "log_normal `sdlog`")
-  
+
   if (spec$sdlog < 0) {
     stop("log_normal `sdlog` must be non-negative.")
   }
-  
+
   # Create sampler
   sampler <- function(n) {
-    rlnorm(
+    stats::rlnorm(
       n = n,
       meanlog = spec$meanlog,
       sdlog = spec$sdlog
     )
   }
-  
+
   return(sampler)
 }
