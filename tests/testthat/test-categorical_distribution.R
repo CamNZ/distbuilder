@@ -26,7 +26,7 @@ sampler <- build_sampler(spec)
 x <- sampler(N)
 
 # ------------------------------------------------------------------------------
-# Test cases
+# Test cases: expected inputs
 # ------------------------------------------------------------------------------
 
 # Sampler returns correct number of values
@@ -45,6 +45,87 @@ expect_equal(
   info = "Observed categorical proportions did not approximate expected probabilities"
 )
 
+# ------------------------------------------------------------------------------
+# Test cases: invalid inputs
+# ------------------------------------------------------------------------------
+
+# Missing levels throws error
+expect_error(
+  build_sampler(list(
+    distribution = "categorical",
+    probabilities = PROBS
+  )),
+  "levels"
+)
+
+# Missing probabilities throws error
+expect_error(
+  build_sampler(list(
+    distribution = "categorical",
+    levels = LEVELS
+  )),
+  "probabilities"
+)
+
+# Empty levels throws error
+expect_error(
+  build_sampler(list(
+    distribution = "categorical",
+    levels = character(0),
+    probabilities = numeric(0)
+  )),
+  "at least one"
+)
+
+# Non-numeric probabilities throw error
+expect_error(
+  build_sampler(list(
+    distribution = "categorical",
+    levels = LEVELS,
+    probabilities = c("high", "medium", "low")
+  )),
+  "probabilities.*numeric"
+)
+
+# Mismatched levels and probabilities throw error
+expect_error(
+  build_sampler(list(
+    distribution = "categorical",
+    levels = LEVELS,
+    probabilities = c(0.5, 0.5)
+  )),
+  "same length"
+)
+
+# NA probabilities throw error
+expect_error(
+  build_sampler(list(
+    distribution = "categorical",
+    levels = LEVELS,
+    probabilities = c(0.5, NA, 0.5)
+  )),
+  "NA"
+)
+
+# Negative probabilities throw error
+expect_error(
+  build_sampler(list(
+    distribution = "categorical",
+    levels = LEVELS,
+    probabilities = c(0.6, -0.3, 0.7)
+  )),
+  "non-negative"
+)
+
+# Zero-sum probabilities throw error
+expect_error(
+  build_sampler(list(
+    distribution = "categorical",
+    levels = LEVELS,
+    probabilities = c(0, 0, 0)
+  )),
+  "positive"
+)
 
 
 
