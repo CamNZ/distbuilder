@@ -1,5 +1,7 @@
 # distbuilder
 
+![R-CMD-check](https://github.com/CamNZ/distbuilder/actions/workflows/R-CMD-check.yaml/badge.svg)
+
 `distbuilder` is an R package that builds sampler functions from distribution specifications.
 
 It is intended for simulation workflows where distributions are defined in a structured format, such as a list or YAML file, then converted into functions that generate random values.
