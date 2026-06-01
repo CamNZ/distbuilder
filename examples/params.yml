@@ -1,0 +1,19 @@
+# examples/params.yml
+donor_age:
+  distribution: uniform
+  min: 18
+  max: 100
+
+protein_x:
+  distribution: mixture
+  components:
+    - distribution: normal
+      mean: 100
+      sd: 20
+      weight: 0.65
+    - distribution: skew_normal
+      location: 130
+      scale: 20
+      shape: 7
+      weight: 0.35
+

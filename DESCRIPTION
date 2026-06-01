@@ -1,0 +1,21 @@
+Package: distbuilder
+Title: Simulate Distributions from Specifications
+Version: 0.1.0
+Authors@R: 
+    person("Cameron", "Fraser",
+           email = "noreply@github.com",
+           role = c("aut", "cre"))
+Description: Builds sampler functions from distribution specifications defined
+    as R lists. Supports common continuous, discrete,
+    fixed-value, categorical, and mixture distributions.
+License: MIT + file LICENSE
+URL: https://github.com/CamNZ/distbuilder
+BugReports: https://github.com/CamNZ/distbuilder/issues
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 8.0.0
+Imports:
+    sn (>= 2.1.3)
+Suggests: 
+    testthat (>= 3.0.0)
+Config/testthat/edition: 3
