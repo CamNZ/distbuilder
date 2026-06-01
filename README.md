@@ -1,6 +1,7 @@
 # distbuilder
 
 ![R-CMD-check](https://github.com/CamNZ/distbuilder/actions/workflows/R-CMD-check.yaml/badge.svg)
+[![Codecov test coverage](https://codecov.io/gh/CamNZ/distbuilder/graph/badge.svg)](https://app.codecov.io/gh/CamNZ/distbuilder)
 
 `distbuilder` is an R package that builds sampler functions from distribution specifications.
 
