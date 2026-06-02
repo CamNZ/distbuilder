@@ -31,6 +31,15 @@
 #' ))
 #' log_normal_sampler(5)
 #'
+#' # T distribution
+#' t_sampler <- build_sampler(list(
+#'   distribution = "t",
+#'   location = 0, # centre of the distribution
+#'   scale = 1,    # spread; approximates SD at large df
+#'   df = 5        # tail heaviness; lower values give heavier tails
+#' ))
+#' t_sampler(5)
+#'
 #' # Uniform distribution
 #' uniform_sampler <- build_sampler(list(
 #'   distribution = "uniform",
@@ -94,6 +103,7 @@ build_sampler <- function(spec) {
     normal = .build_normal_sampler(spec),
     skew_normal = .build_skew_normal_sampler(spec),
     log_normal = .build_log_normal_sampler(spec),
+    t = .build_t_sampler(spec),
     uniform = .build_uniform_sampler(spec),
     beta = .build_beta_sampler(spec),
     categorical = .build_categorical_sampler(spec),
