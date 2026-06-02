@@ -41,6 +41,15 @@ log_normal_sampler <- build_sampler(list(
 ))
 log_normal_sampler(5)
 
+# T distribution
+t_sampler <- build_sampler(list(
+  distribution = "t",
+  location = 0, # centre of the distribution
+  scale = 1,    # spread; approximates SD at large df
+  df = 5        # tail heaviness; lower values give heavier tails
+))
+t_sampler(5)
+
 # Uniform distribution
 uniform_sampler <- build_sampler(list(
   distribution = "uniform",
