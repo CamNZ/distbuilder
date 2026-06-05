@@ -1,6 +1,6 @@
 Package: distbuilder
 Title: Simulate Distributions from Specifications
-Version: 0.1.0
+Version: 0.2.0
 Authors@R: 
     person("Cameron", "Fraser",
            email = "noreply@github.com",
