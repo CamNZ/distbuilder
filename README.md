@@ -64,7 +64,7 @@ pak::pak("CamNZ/distbuilder")
 For a specific version:
 
 ```r
-pak::pak("CamNZ/distbuilder@v0.1.0")
+pak::pak("CamNZ/distbuilder@v0.2.0")
 ```
 
 
